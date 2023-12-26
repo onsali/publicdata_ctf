@@ -15,6 +15,6 @@ node server.js
 
 
 To do:
-[] Shift Routes, and Middleware out of server.js
-[] Fix hardcoded SQLi vuln
-[] MD Documentation
+[ ] Shift Routes, and Middleware out of server.js
+[ ] Fix hardcoded SQLi vuln
+[ ] MD Documentation
