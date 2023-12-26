@@ -1,0 +1,38 @@
+1. Using a REST Client:
+You can use REST client tools like Postman, Insomnia, or even cURL to make HTTP POST requests to your server.
+
+Example using cURL:
+Open your terminal or command prompt and execute the following command:
+curl -X POST http://localhost:3000/users -H "Content-Type: application/json" -d '{"name": "John Doe", "email": "john@example.com", "password":"pass"}'
+
+2. SQLi:
+
+Recommended to do manually and automated.
+See: https://www.w3schools.com/sql/sql_injection.asp
+SQLMap is much easier to gain a graphic understanding of the schema and tables behind
+
+Notes
+Common payloads:
+    ' OR '1'='1
+    ' or 1=1
+
+---------------------------------------------------------------------------------------------------------
+Swagger Docs v1
+
+GET /users/search
+params: query
+
+POST /users
+params: name, email, password
+
+POST /login 
+params: email, password
+
+GET /files
+
+GET /private
+
+POST /validate-flag
+params: flag
+
+flag{b4byst3Ps}

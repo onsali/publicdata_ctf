@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+/shwaggerdocs.txt
+/search.html

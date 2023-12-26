@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pennington CTF</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1><b>Welcome to the 2023 Pennington CTF Challenge API!.</b></h1>
+        <p>This is a CRUD (mostly) REST based API.<br>
+           There are <b>5</b> flags to collect in total.</p>
+           Feel free to wander around. 
+    <h2>Sign up
+    </h2>
+    Hint: Try replicating this form as an HTTP request. Use Postman or Curl for futher digging
+    <br><br>
+    <form action="/users" method="post">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br><br>
+        <input type="submit" value="Submit">
+        Already have an account? <a href="/login.html">Login here</a>
+    </form>
+    <form id="flagForm">
+        <input type="text" name="flag" placeholder="Flag format: flag{}">
+        <button type="submit">Submit Flag</button>
+    </form>
+    <p id="message"></p>
+    <p>Flags: <span id="correctFlags">0</span></p>
+    <script>// flag validation logic
+        let correctFlagCount = 0;
+        let validatedFlags = new Set();
+    
+        document.getElementById('flagForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+    
+            var flag = document.getElementsByName('flag')[0].value;
+    
+            if (validatedFlags.has(flag)) {
+                document.getElementById('message').innerText = 'This flag has already been used.';
+                return;
+            }
+    
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/validate-flag?flag=' + encodeURIComponent(flag), true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onload = function() {
+                if (this.status == 200) {
+                    document.getElementById('message').innerText = 'Flag is correct!';
+                    validatedFlags.add(flag); 
+                    correctFlagCount++;
+                    document.getElementById('correctFlags').innerText = correctFlagCount;
+                } else {
+                    document.getElementById('message').innerText = 'Incorrect flag. Please try again.';
+                }
+            };
+            xhr.send();
+        });
+    </script>     
+
+</body>
+<!-- todo: write /robots.txt file-->
+</html>

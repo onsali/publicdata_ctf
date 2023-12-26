@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../sqlite_injection_lab"
+		}
+	],
+	"settings": {}
+}

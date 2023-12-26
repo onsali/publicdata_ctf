@@ -1,0 +1,46 @@
+body {
+    background-color: black;
+    color: limegreen;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 20px;
+}
+
+h1, h2, p {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+form {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+input[type=text], input[type=email] {
+    background-color: black;
+    color: limegreen;
+    border: none;
+    border-bottom: 1px solid limegreen;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+input[type=submit] {
+    background-color: limegreen;
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+label {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+a {
+    color: limegreen;
+  }
